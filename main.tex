@@ -1,4 +1,4 @@
-\documentclass{article}
+\documentclass[jcp,groupaddress]{revtex4-1}
 % graphical packages
 \usepackage{amsthm}
 \usepackage{float}
@@ -63,70 +63,73 @@ Eq.(\ref{#1})
 \newcommand{\via}{\emph{via }}
 
 \begin{document}
-\title{Notes on microscopic polarizabilities}
-\author{M. Sadhukhan}
-\date{\today}
-
+\title{On non-local response functions of quantum harmonic oscillator and their application in theory of van der Waals interactions}
 \maketitle
-\tableofcontents
-\section{Definitions and important formulae}
-\begin{itemize}
- \item{\bf Fourier transform}\\
+\author{Jan Hermann}
+\author{M. Sadhukhan}
+\author{Alexandre Tkatchenko}
+\date{}
 
-    We will use the unitary symmetric Fourier transform pairs
-     \begin{eqnarray*}
-      \mathcal{F}[f] \coloneqq \hat{f}(\boldsymbol{\omega})&=& \frac{1}{(2\pi)^{n/2}}\int_{\mathbf{R}^{n}}f(\rr)e^{i\boldsymbol{\omega}.\rr}\diff \rr \\
-     \mathcal{F}^{-1}[\hat f] \coloneqq  f(\rr)&=& \frac{1}{(2\pi)^{n/2}}\int_{\boldsymbol{\omega}^{n}}\hat{f}(\boldsymbol{\omega})e^{-i\boldsymbol{\omega}.\rr}\diff \boldsymbol{\omega}
-     \end{eqnarray*} 
- \item{\bf Delta function}\\
 
-   We will use the following representation of the Delta function to be consistent with Fourier transform convention:\\
-\begin{equation*}
- \delta(x-x')= \frac{1}{2\pi} \int_{-\infty}^{\infty}  e^{ik(x-x')}\diff k
-\end{equation*}
 
-\item{\bf Convolution theorem for FT}\\
+% \section{Definitions and important formulae}
+% \begin{itemize}
+%  \item{\bf Fourier transform}\\
 
- Suppose $\hat{f} = \mathcal{F}[f]$ and $\hat{g} = \mathcal{F}[g]$. Then the convolution of $\hat{f}$and  $\hat{g}$ is related to $f$ and $g$ by 
-\begin{equation*}
-\hat{f}*\hat{g} \coloneqq \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \diff k' \, \hat{f}(k-k')\hat{g}(k')= \frac{1}{\sqrt{2\pi}}  \int_{-\infty}^{\infty} e^{ik x} f(x) g(x) \diff x
-\end{equation*}
-\item{\bf Integration of function}\\
- For an FT pair $(f,\hat{f})$,
-\begin{equation*}
-\hat{f}(0) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x) \diff x
-\end{equation*}
+%     We will use the unitary symmetric Fourier transform pairs
+%      \begin{eqnarray*}
+%       \mathcal{F}[f] \coloneqq \hat{f}(\boldsymbol{\omega})&=& \frac{1}{(2\pi)^{n/2}}\int_{\mathbf{R}^{n}}f(\rr)e^{i\boldsymbol{\omega}.\rr}\diff \rr \\
+%      \mathcal{F}^{-1}[\hat f] \coloneqq  f(\rr)&=& \frac{1}{(2\pi)^{n/2}}\int_{\boldsymbol{\omega}^{n}}\hat{f}(\boldsymbol{\omega})e^{-i\boldsymbol{\omega}.\rr}\diff \boldsymbol{\omega}
+%      \end{eqnarray*} 
+%  \item{\bf Delta function}\\
 
-\item{\bf Time-scaling of FT}\\
+%   We will use the following representation of the Delta function to be consistent with Fourier transform convention:\\
+% \begin{equation*}
+%  \delta(x-x')= \frac{1}{2\pi} \int_{-\infty}^{\infty}  e^{ik(x-x')}\diff k
+% \end{equation*}
 
-If $g(x) = f(a x)$ then 
+% \item{\bf Convolution theorem for FT}\\
 
- \begin{equation*}
-\hat{g}(x) = \frac{1}{\abs{a}}\hat{f}(\frac{x}{a})
-\end{equation*}
+%  Suppose $\hat{f} = \mathcal{F}[f]$ and $\hat{g} = \mathcal{F}[g]$. Then the convolution of $\hat{f}$and  $\hat{g}$ is related to $f$ and $g$ by 
+% \begin{equation*}
+% \hat{f}*\hat{g} \coloneqq \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} \diff k' \, \hat{f}(k-k')\hat{g}(k')= \frac{1}{\sqrt{2\pi}}  \int_{-\infty}^{\infty} e^{ik x} f(x) g(x) \diff x
+% \end{equation*}
+% \item{\bf Integration of function}\\
+%  For an FT pair $(f,\hat{f})$,
+% \begin{equation*}
+% \hat{f}(0) = \frac{1}{\sqrt{2\pi}} \int_{-\infty}^{\infty} f(x) \diff x
+% \end{equation*}
 
-\item{\bf Duality of FT}\\
+% \item{\bf Time-scaling of FT}\\
 
-\begin{equation*}
-\mathcal{F}[f](-k) =\mathcal{F}^{-1}[f](k)
-\end{equation*}
-\item{\bf Error function}\\
-  \begin{equation*}
-\erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^{x}  e^{-t^{2}} \diff t =  \frac{1}{\sqrt{\pi}}\int_{-x}^{x}  e^{-t^{2}} \diff t 
-\end{equation*}
-\item{\bf Complimentary error function}\\
-  \begin{equation*}
-\erfc(x) = \frac{2}{\sqrt{\pi}}\int_{x}^{\infty}  e^{-t^{2}} \diff t = 1-\erf(x)
-\end{equation*}
+% If $g(x) = f(a x)$ then 
+
+%  \begin{equation*}
+% \hat{g}(x) = \frac{1}{\abs{a}}\hat{f}(\frac{x}{a})
+% \end{equation*}
+
+% \item{\bf Duality of FT}\\
+
+% \begin{equation*}
+% \mathcal{F}[f](-k) =\mathcal{F}^{-1}[f](k)
+% \end{equation*}
+% \item{\bf Error function}\\
+%   \begin{equation*}
+% \erf(x) = \frac{2}{\sqrt{\pi}}\int_{0}^{x}  e^{-t^{2}} \diff t =  \frac{1}{\sqrt{\pi}}\int_{-x}^{x}  e^{-t^{2}} \diff t 
+% \end{equation*}
+% \item{\bf Complimentary error function}\\
+%   \begin{equation*}
+% \erfc(x) = \frac{2}{\sqrt{\pi}}\int_{x}^{\infty}  e^{-t^{2}} \diff t = 1-\erf(x)
+% \end{equation*}
 
  
 
-\end{itemize}
-
+% \end{itemize}
+\section{Introduction}
 \section{Polarizability and other response functions}
 The polarizability describes a systems ability to be deformed in response to the perturbations. In case of electronic systems, this perturbations are the electric and/or magetic fields. We will concentrate here only on the electric fields. The perturbing electric field can come from the external as well as internal fluctuations of electric charges. The \emph{fluctuation-dissipation theorem}\cite{langreth1977} ascertains that the nature of the electronic response for both cases are same.  
 \subsection{Polarizability}
-When a symmetric or spherical electron density gets deformed assymetry is created. As a result, in a simplest case, a dipole is created. It is obvious to that stronger electric field will create larger dipole moment. 
+When a symmetric or spherical electron density gets deformed asymetry is created. As a result, in a simplest case, a dipole is created. It is obvious to that stronger electric field will create larger dipole moment. 
 \begin{equation}
  \mu = \alpha E
 \end{equation} 
